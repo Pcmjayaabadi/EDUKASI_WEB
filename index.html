@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Belajar Teknologi Dasar - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .feature-card,
+    .materi-card,
+    .testi-card {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .feature-card.visible,
+    .materi-card.visible,
+    .testi-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav
+    class="bg-gradient-to-r from-blue-700 via-blue-600 to-blue-700 bg-[length:200%_200%] animate-gradient text-white px-4 py-3 flex justify-between items-center sticky top-0 z-50 shadow-lg">
+    <!-- Logo -->
+    <h1 class="text-xl font-bold">Belajar Teknologi Dasar</h1>
+
+    <!-- Menu untuk layar besar -->
+    <ul class="hidden md:flex space-x-6 relative">
+      <li><a href="index.html" class="hover:text-yellow-300 transition">Home</a></li>
+
+      <!-- Menu Materi -->
+      <li class="relative">
+        <button id="materi-btn" class="hover:text-yellow-300 transition flex items-center space-x-1">
+          <span>Materi</span>
+          <svg id="materi-arrow" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <!-- Dropdown -->
+        <ul id="materi-menu" class="absolute left-0 mt-2 hidden bg-blue-600 text-white rounded shadow-lg py-2 w-48">
+          <li><a href="materi.html#html" class="block px-4 py-2 hover:bg-blue-500">HTML Dasar</a></li>
+          <li><a href="materi.html#css" class="block px-4 py-2 hover:bg-blue-500">CSS Dasar</a></li>
+          <li><a href="materi.html#javascript" class="block px-4 py-2 hover:bg-blue-500">JavaScript Dasar</a></li>
+        </ul>
+      </li>
+
+
+      <li><a href="tentang.html" class="hover:text-yellow-300 font-bold underline transition">Tentang</a></li>
+      <li><a href="kontak.html" class="hover:text-yellow-300 transition">Kontak</a></li>
+    </ul>
+
+    <!-- Tombol hamburger -->
+    <button id="menu-toggle" class="md:hidden flex flex-col space-y-1 transition duration-300">
+      <span class="block w-6 h-0.5 bg-white"></span>
+      <span class="block w-6 h-0.5 bg-white"></span>
+      <span class="block w-6 h-0.5 bg-white"></span>
+    </button>
+  </nav>
+
+  <!-- Dropdown menu untuk layar kecil -->
+  <div id="mobile-menu"
+    class="hidden bg-blue-600 text-white md:hidden overflow-hidden transition-all duration-500 ease-in-out">
+    <ul class="flex flex-col items-center py-4 space-y-4">
+      <li><a href="index.html" class="hover:text-yellow-300 transition">Home</a></li>
+      <li>
+        <details class="w-full text-center">
+          <summary class="cursor-pointer hover:text-yellow-300">Materi</summary>
+          <ul class="mt-2 space-y-2">
+            <li><a href="#" class="block hover:text-yellow-300">HTML Dasar</a></li>
+            <li><a href="#" class="block hover:text-yellow-300">CSS Dasar</a></li>
+            <li><a href="#" class="block hover:text-yellow-300">JavaScript Dasar</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a href="tentang.html" class="hover:text-yellow-300 font-bold underline transition">Tentang</a></li>
+      <li><a href="kontak.html" class="hover:text-yellow-300 transition">Kontak</a></li>
+    </ul>
+  </div>
+  <!-- Konten Utama -->
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="bg-blue-600 text-white text-center py-16">
+      <h2 id="typing-text" class="text-4xl font-bold mb-4"></h2>
+      <p class="text-lg max-w-2xl mx-auto">
+        Platform edukasi interaktif untuk memahami dunia teknologi dari dasar hingga mahir.
+        Mulailah perjalanan belajarmu sekarang!
+      </p>
+      <a href="materi.html"
+        class="mt-6 inline-block bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">
+        Mulai Belajar
+      </a>
+      <p id="clock" class="mt-4 text-xl font-mono"></p>
+    </section>
+
+    <!-- Features -->
+    <section class="max-w-5xl mx-auto py-12 px-4 grid md:grid-cols-3 gap-6">
+      <div
+        class="feature-card bg-white p-6 rounded shadow hover:shadow-xl transform hover:scale-105 transition duration-300">
+        <div class="text-blue-600 mb-3 animate-pulse">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 text-center">Materi Lengkap</h3>
+        <p class="text-center">Pahami berbagai konsep teknologi modern mulai dari dasar internet, hardware, software,
+          hingga keamanan digital.</p>
+      </div>
+      <div
+        class="feature-card bg-white p-6 rounded shadow hover:shadow-xl transform hover:scale-105 transition duration-300">
+        <div class="text-blue-600 mb-3 animate-pulse">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M15 10l4.553 2.276A1 1 0 0120 13.118V18a1 1 0 01-1.447.894L15 16.118V10zM4 6h8M4 10h8M4 14h8M4 18h8" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 text-center">Video & Audio</h3>
+        <p class="text-center">Belajar lebih mudah melalui konten multimedia yang menarik dan mudah dipahami untuk semua
+          kalangan.</p>
+      </div>
+      <div
+        class="feature-card bg-white p-6 rounded shadow hover:shadow-xl transform hover:scale-105 transition duration-300">
+        <div class="text-blue-600 mb-3 animate-pulse">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-semibold mb-2 text-center">Latihan & Feedback</h3>
+        <p class="text-center">Uji pemahamanmu dengan latihan interaktif dan dapatkan umpan balik untuk meningkatkan
+          kemampuanmu.</p>
+      </div>
+    </section>
+
+    <!-- Tentang Singkat -->
+    <section class="bg-white py-12 px-4 text-center">
+      <h3 class="text-2xl font-bold mb-4">Tentang Kami</h3>
+      <p class="max-w-3xl mx-auto">Belajar Teknologi Dasar adalah platform edukasi untuk memahami teknologi dari dasar.
+        Kami berkomitmen memberikan materi yang mudah diikuti, praktis, dan selalu relevan dengan perkembangan terbaru.
+      </p>
+    </section>
+
+    <!-- Materi Populer -->
+    <section class="max-w-6xl mx-auto py-12 px-4">
+      <h3 class="text-2xl font-bold text-center mb-8">Materi Populer</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div
+          class="materi-card bg-white rounded shadow hover:shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+          <img src="https://via.placeholder.com/600x300" alt="Materi 1" class="w-full">
+          <div class="p-4">
+            <h4 class="font-semibold mb-2">Dasar Internet</h4>
+            <p>Pahami cara kerja internet dan protokol dasarnya.</p>
+          </div>
+        </div>
+        <div
+          class="materi-card bg-white rounded shadow hover:shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+          <img src="https://via.placeholder.com/600x300" alt="Materi 2" class="w-full">
+          <div class="p-4">
+            <h4 class="font-semibold mb-2">Hardware & Software</h4>
+            <p>Kenali komponen penting perangkat keras dan lunak.</p>
+          </div>
+        </div>
+        <div
+          class="materi-card bg-white rounded shadow hover:shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+          <img src="https://via.placeholder.com/600x300" alt="Materi 3" class="w-full">
+          <div class="p-4">
+            <h4 class="font-semibold mb-2">Keamanan Digital</h4>
+            <p>Pelajari cara melindungi data dan privasi online.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section class="bg-gray-200 py-12 px-4 text-center">
+      <h3 class="text-2xl font-bold mb-8">Apa Kata Mereka?</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="testi-card bg-white p-6 rounded shadow">
+          <p>"Materinya mudah dipahami, cocok untuk pemula!"</p>
+          <span class="block mt-2 font-semibold">- Sinta, Mahasiswa</span>
+        </div>
+        <div class="testi-card bg-white p-6 rounded shadow">
+          <p>"Platform ini membantu saya memahami teknologi lebih cepat."</p>
+          <span class="block mt-2 font-semibold">- Budi, Pelajar</span>
+        </div>
+        <div class="testi-card bg-white p-6 rounded shadow">
+          <p>"Belajar jadi menyenangkan dengan video dan latihan interaktif."</p>
+          <span class="block mt-2 font-semibold">- Andi, Karyawan</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-blue-600 text-white text-center py-12">
+      <h3 class="text-2xl font-bold mb-4">Siap Mulai Belajar?</h3>
+      <a href="materi.html" class="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">Gabung
+        Sekarang</a>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-white py-12 px-4 text-center">
+      <h3 class="text-2xl font-bold mb-4">Berlangganan Newsletter</h3>
+      <form class="max-w-md mx-auto flex">
+        <input type="email" placeholder="Masukkan email Anda" class="flex-grow border p-2 rounded-l" required>
+        <button type="submit" class="bg-blue-600 text-white px-4 rounded-r hover:bg-blue-700">Langganan</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-blue-700 text-white py-8 mt-12">
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8 text-sm">
+      <!-- Tentang -->
+      <div>
+        <h4 class="font-semibold mb-3 text-lg flex items-center space-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-300" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 11c0 .35-.06.69-.17 1h-1.66A3.001 3.001 0 0112 11zM9 7a3 3 0 013 3v1H9V7z" />
+          </svg>
+          <span>Belajar Teknologi Dasar</span>
+        </h4>
+        <p class="text-gray-200 leading-relaxed">
+          Platform edukasi untuk memahami dasar-dasar teknologi, dari pemula hingga mahir.
+        </p>
+      </div>
+
+      <!-- Navigasi -->
+      <div>
+        <h4 class="font-semibold mb-3 text-lg flex items-center space-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-300" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M3 6h18M3 18h18" />
+          </svg>
+          <span>Navigasi</span>
+        </h4>
+        <ul class="space-y-2">
+          <li><a href="index.php" class="hover:underline flex items-center space-x-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 12l2-2m0 0l7-7 7 7m-7-7v18" />
+              </svg><span>Home</span>
+            </a></li>
+          <li><a href="materi.php" class="hover:underline flex items-center space-x-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 21H5a2 2 0 01-2-2V7a2 2 0 012-2h14a2 2 0 012 2v12a2 2 0 01-2 2z" />
+              </svg><span>Materi</span>
+            </a></li>
+          <li><a href="tentang.php" class="hover:underline flex items-center space-x-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M5.121 17.804A13.937 13.937 0 0112 15c3.314 0 6.314 1.343 8.879 3.516M15 11a3 3 0 10-6 0 3 3 0 006 0z" />
+              </svg><span>Tentang</span>
+            </a></li>
+          <li><a href="kontak.php" class="hover:underline flex items-center space-x-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m0 0l4-4m-4 4l4 4" />
+              </svg><span>Kontak</span>
+            </a></li>
+        </ul>
+      </div>
+
+      <!-- Kontak -->
+      <div>
+        <h4 class="font-semibold mb-3 text-lg flex items-center space-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-300" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h18M8 5v14m8-14v14" />
+          </svg>
+          <span>Kontak</span>
+        </h4>
+        <ul class="space-y-2 text-gray-200">
+          <li class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12H8m0 0l4-4m-4 4l4 4" />
+            </svg><span>Email: info@belajarteknologi.com</span>
+          </li>
+          <li class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a1 1 0 001.22 0L20 8m-9 13V5" />
+            </svg><span>Telepon: +62 812-3456-7890</span>
+          </li>
+          <li class="flex items-center space-x-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 11c0 .35-.06.69-.17 1h-1.66A3.001 3.001 0 0112 11zM9 7a3 3 0 013 3v1H9V7z" />
+            </svg><span>Alamat: Jakarta, Indonesia</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Media Sosial -->
+      <div>
+        <h4 class="font-semibold mb-3 text-lg flex items-center space-x-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-300" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M14.752 11.168l-2.197 2.197a1 1 0 01-1.415 0l-2.197-2.197" />
+          </svg>
+          <span>Ikuti Kami</span>
+        </h4>
+        <div class="flex space-x-4 text-gray-200">
+          <a href="#" class="hover:text-gray-300 flex items-center space-x-1">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" class="h-4 w-4" alt="FB">
+            <span>Facebook</span>
+          </a>
+          <a href="#" class="hover:text-gray-300 flex items-center space-x-1">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" class="h-4 w-4" alt="Twitter">
+            <span>Twitter</span>
+          </a>
+          <a href="#" class="hover:text-gray-300 flex items-center space-x-1">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" class="h-4 w-4" alt="Instagram">
+            <span>Instagram</span>
+          </a>
+          <a href="#" class="hover:text-gray-300 flex items-center space-x-1">
+            <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" class="h-4 w-4" alt="LinkedIn">
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Garis Pemisah -->
+    <div class="border-t border-blue-500 mt-8 pt-4 text-center text-gray-200 text-xs">
+      &copy; 2025 Belajar Teknologi Dasar. Semua Hak Dilindungi.
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn"
+    class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hidden">↑</button>
+
+  <!-- JavaScript: Jam Digital, Efek Mengetik, Scroll Animasi -->
+  <script>
+    // dropdow header
+    // dropdow header 
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let isOpen = false;
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      isOpen = !isOpen;
+
+      const bars = menuToggle.querySelectorAll('span');
+      if (isOpen) {
+        bars[0].classList.add('transform', 'rotate-45', 'translate-y-2');
+        bars[1].classList.add('opacity-0');
+        bars[2].classList.add('transform', '-rotate-45', '-translate-y-2');
+      } else {
+        bars[0].classList.remove('transform', 'rotate-45', 'translate-y-2');
+        bars[1].classList.remove('opacity-0');
+        bars[2].classList.remove('transform', '-rotate-45', '-translate-y-2');
+      }
+    });
+    const materiBtn = document.getElementById('materi-btn');
+    const materiMenu = document.getElementById('materi-menu');
+    const materiArrow = document.getElementById('materi-arrow');
+
+    materiBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      materiMenu.classList.toggle('hidden');
+      materiArrow.classList.toggle('rotate-180');
+    });
+
+    // Jam Digital
+    function updateClock() {
+      const now = new Date();
+      document.getElementById('clock').textContent = now.toLocaleTimeString('id-ID');
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Efek Mengetik
+    const text = "Selamat Datang di Belajar Teknologi Dasar";
+    let index = 0;
+    function typeEffect() {
+      if (index < text.length) {
+        document.getElementById("typing-text").textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 80);
+      }
+    }
+    window.onload = typeEffect;
+
+    // Animasi Fade-in saat scroll
+    const cards = document.querySelectorAll('.feature-card, .materi-card, .testi-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    cards.forEach(card => observer.observe(card));
+
+    // Scroll to Top Button
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function () {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        scrollTopBtn.classList.remove("hidden");
+      } else {
+        scrollTopBtn.classList.add("hidden");
+      }
+    };
+    scrollTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  </script>
+</body>
+
+</html>

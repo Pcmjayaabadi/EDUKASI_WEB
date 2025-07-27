@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Belajar Teknologi Dasar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Hero animasi gradien */
+        .animated-bg {
+            background: linear-gradient(-45deg, #1d4ed8, #3b82f6, #2563eb, #1e3a8a);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Animasi form */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Ripple effect */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.5);
+            top: 0;
+            left: -100%;
+            transform: skewX(-45deg);
+        }
+
+        .ripple:active::after {
+            left: 200%;
+            transition: left 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-700 text-white p-4 flex justify-between items-center sticky top-0 z-50">
+        <h1 class="text-xl font-bold">Belajar Teknologi Dasar</h1>
+        <ul class="flex space-x-4">
+            <li><a href="index.html" class="hover:underline">Home</a></li>
+            <li><a href="materi.html" class="hover:underline">Materi</a></li>
+            <li><a href="tentang.html" class="hover:underline">Tentang</a></li>
+            <li><a href="kontak.html" class="hover:underline font-bold underline">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="animated-bg text-white text-center py-16">
+        <h2 id="typing-text" class="text-4xl font-bold mb-4"></h2>
+        <p class="text-lg max-w-2xl mx-auto">Hubungi kami untuk pertanyaan, saran, atau kerja sama.</p>
+    </section>
+
+    <!-- Konten Utama -->
+    <main class="flex-grow max-w-5xl mx-auto py-12 px-4 space-y-16">
+        <!-- Form Kontak -->
+        <section class="bg-white rounded-lg shadow p-6 fade-in">
+            <h3 class="text-2xl font-bold mb-6 text-center">Kirim Pesan</h3>
+            <form class="space-y-4">
+                <input type="text" placeholder="Nama Anda" class="border p-2 w-full rounded">
+                <input type="email" placeholder="Email Anda" class="border p-2 w-full rounded">
+                <textarea placeholder="Pesan Anda" rows="5" class="border p-2 w-full rounded"></textarea>
+                <button type="submit"
+                    class="bg-blue-600 text-white px-4 py-2 rounded ripple hover:bg-blue-700">Kirim</button>
+            </form>
+        </section>
+
+        <!-- Peta Lokasi -->
+        <section class="bg-white rounded-lg shadow p-6 fade-in">
+            <h3 class="text-2xl font-bold mb-4 text-center">Lokasi Kami</h3>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1983.8922637110738!2d106.827153315946!3d-6.175110395528761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTAnMzEuNCJTIDEwNsKwNDknMzguMCJF!5e0!3m2!1sid!2sid!4v1612345678901"
+                width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </section>
+
+        <!-- Info Sosial Media -->
+        <section class="bg-white rounded-lg shadow p-6 text-center fade-in">
+            <h3 class="text-2xl font-bold mb-4">Ikuti Kami</h3>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-blue-600 hover:underline ripple">Facebook</a>
+                <a href="#" class="text-blue-400 hover:underline ripple">Twitter</a>
+                <a href="#" class="text-pink-600 hover:underline ripple">Instagram</a>
+                <a href="#" class="text-blue-700 hover:underline ripple">LinkedIn</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-700 text-white py-8 mt-12">
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8 text-sm">
+            <!-- Tentang -->
+            <div>
+                <h4 class="font-semibold mb-3 text-lg flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-300" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 11c0 .35-.06.69-.17 1h-1.66A3.001 3.001 0 0112 11zM9 7a3 3 0 013 3v1H9V7z" />
+                    </svg>
+                    <span>Belajar Teknologi Dasar</span>
+                </h4>
+                <p class="text-gray-200 leading-relaxed">
+                    Platform edukasi untuk memahami dasar-dasar teknologi, dari pemula hingga mahir.
+                </p>
+            </div>
+
+            <!-- Navigasi -->
+            <div>
+                <h4 class="font-semibold mb-3 text-lg flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-300" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 12h18M3 6h18M3 18h18" />
+                    </svg>
+                    <span>Navigasi</span>
+                </h4>
+                <ul class="space-y-2">
+                    <li><a href="index.php" class="hover:underline flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7m-7-7v18" />
+                            </svg><span>Home</span>
+                        </a></li>
+                    <li><a href="materi.php" class="hover:underline flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 21H5a2 2 0 01-2-2V7a2 2 0 012-2h14a2 2 0 012 2v12a2 2 0 01-2 2z" />
+                            </svg><span>Materi</span>
+                        </a></li>
+                    <li><a href="tentang.php" class="hover:underline flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5.121 17.804A13.937 13.937 0 0112 15c3.314 0 6.314 1.343 8.879 3.516M15 11a3 3 0 10-6 0 3 3 0 006 0z" />
+                            </svg><span>Tentang</span>
+                        </a></li>
+                    <li><a href="kontak.php" class="hover:underline flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 12H8m0 0l4-4m-4 4l4 4" />
+                            </svg><span>Kontak</span>
+                        </a></li>
+                </ul>
+            </div>
+
+            <!-- Kontak -->
+            <div>
+                <h4 class="font-semibold mb-3 text-lg flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-300" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 5h18M8 5v14m8-14v14" />
+                    </svg>
+                    <span>Kontak</span>
+                </h4>
+                <ul class="space-y-2 text-gray-200">
+                    <li class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 12H8m0 0l4-4m-4 4l4 4" />
+                        </svg><span>Email: info@belajarteknologi.com</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a1 1 0 001.22 0L20 8m-9 13V5" />
+                        </svg><span>Telepon: +62 812-3456-7890</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 11c0 .35-.06.69-.17 1h-1.66A3.001 3.001 0 0112 11zM9 7a3 3 0 013 3v1H9V7z" />
+                        </svg><span>Alamat: Jakarta, Indonesia</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Media Sosial -->
+            <div>
+                <h4 class="font-semibold mb-3 text-lg flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-300" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14.752 11.168l-2.197 2.197a1 1 0 01-1.415 0l-2.197-2.197" />
+                    </svg>
+                    <span>Ikuti Kami</span>
+                </h4>
+                <div class="flex space-x-4 text-gray-200">
+                    <a href="#" class="hover:text-gray-300 flex items-center space-x-1">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" class="h-4 w-4" alt="FB">
+                        <span>Facebook</span>
+                    </a>
+                    <a href="#" class="hover:text-gray-300 flex items-center space-x-1">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" class="h-4 w-4" alt="Twitter">
+                        <span>Twitter</span>
+                    </a>
+                    <a href="#" class="hover:text-gray-300 flex items-center space-x-1">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" class="h-4 w-4"
+                            alt="Instagram"> <span>Instagram</span>
+                    </a>
+                    <a href="#" class="hover:text-gray-300 flex items-center space-x-1">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" class="h-4 w-4"
+                            alt="LinkedIn"> <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Garis Pemisah -->
+        <div class="border-t border-blue-500 mt-8 pt-4 text-center text-gray-200 text-xs">
+            &copy; 2025 Belajar Teknologi Dasar. Semua Hak Dilindungi.
+        </div>
+    </footer>
+
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn"
+        class="fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hidden ripple">↑</button>
+
+    <!-- JavaScript -->
+    <script>
+        // Efek Mengetik
+        const text = "Kontak Kami";
+        let index = 0;
+        function typeEffect() {
+            if (index < text.length) {
+                document.getElementById("typing-text").textContent += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 80);
+            }
+        }
+        window.onload = typeEffect;
+
+        // Fade-in animasi
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.classList.remove("hidden");
+            } else {
+                scrollTopBtn.classList.add("hidden");
+            }
+        };
+        scrollTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    </script>
+</body>
+
+</html>
